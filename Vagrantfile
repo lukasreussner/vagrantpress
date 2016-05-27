@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Vagrant.configure("2") do |config|
   config.vm.box = "trusty64"
   config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
@@ -49,6 +50,42 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # config.vm.box_url = "http://domain.com/path/to/above.box"
 
+=======
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+# Include the configuration file
+CONFIG = "#{File.dirname(__FILE__)}/config.rb"
+puts CONFIG
+if File.exist?(CONFIG)
+  require CONFIG
+end
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # All Vagrant configuration is done here. The most common configuration
+  # options are documented and commented below. For a complete reference,
+  # please see the online documentation at vagrantup.com.
+
+  # Using the default hashicorp / Ubuntu 12.04 LTS version.
+  # If you would like to use a different box, edit this parameter.
+  puts $options
+  if $options.key?(:box_file)
+    config.vm.box = $options[:box_file]
+  else
+    puts "Using Default"
+    config.vm.box = "hashicorp/precise32"
+  end
+
+  # Set a box hostname
+  if $options.key?(:box_hostname)
+    config.vm.hostname = $options[:box_hostname]
+  else
+    config.vm.hostname = 'vagrantpress'
+  end
+
+  # config.vm.box_url = "http://domain.com/path/to/above.box"
+
+>>>>>>> vagrantpress/2.0
   # Forwarded ports for the virtual box.  If you would like to
   # connect to the box on port 8080. you'll want to uncomment
   # that line.  For using virtual hosts, you may want to modify this
@@ -67,6 +104,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # A bootstrapping shell for checking for puppet.
   config.vm.provision "shell", path: "shell/bootstrap.sh"
+<<<<<<< HEAD
+>>>>>>> vagrantpress/2.0
+=======
 >>>>>>> vagrantpress/2.0
 
   config.vm.provision :puppet do |puppet|
@@ -81,6 +121,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
     #puppet.options = "--hiera_config=/vagrant/puppet/hiera.yaml"
     #puppet.options="--verbose --debug"
+<<<<<<< HEAD
   end
 <<<<<<< HEAD
   
@@ -92,6 +133,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 end
 =======
+
+end
+>>>>>>> vagrantpress/2.0
+=======
+  end
 
 end
 >>>>>>> vagrantpress/2.0

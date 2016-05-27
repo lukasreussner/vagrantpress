@@ -1,0 +1,12 @@
+---
+:backends: json
+
+:json:
+  :datadir: /vagrant/puppet/hieradata
+
+:hierarchy:
+  - environments/%{::environment}
+  - versions
+  - common
+
+:logger: puppet

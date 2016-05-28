@@ -9,6 +9,7 @@ PUPPET_DIR=/etc/puppet/
 
 # NB: librarian-puppet might need git installed. If it is not already installed
 # in your basebox, this will manually install it at this point using apt or yum
+# Test
 
 # Execute System Updates for recent packages.
     $(which apt-get > /dev/null 2>&1)
